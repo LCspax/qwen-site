@@ -66,7 +66,7 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
             {/* 清晰版 — 逐渐透明 */}
             <div className="relative w-28 h-28 md:w-36 md:h-36">
               <img
-                src="/qwen-color.svg"
+                src="/qwen-site/qwen-color.svg"
                 alt="千问"
                 className="w-full h-full object-contain will-change-transform"
                 style={{ transform: 'translateZ(0)' }}

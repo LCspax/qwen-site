@@ -138,7 +138,7 @@ export default function ChatSection() {
           <div className="glass-strong rounded-3xl p-6 md:p-8 max-w-3xl mx-auto">
             <div className="flex items-center justify-between mb-6 pb-4 border-b border-white/[0.06]">
               <div className="flex items-center gap-3">
-                <img src="/icon.svg" alt="千问" className="w-10 h-10 rounded-full object-contain" />
+                <img src="/qwen-site/icon.svg" alt="千问" className="w-10 h-10 rounded-full object-contain" />
                 <div>
                   <p className="text-white font-medium">千问对话</p>
                   <p className="text-white/50 text-xs">在线</p>

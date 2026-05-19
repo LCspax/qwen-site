@@ -51,7 +51,7 @@ export default function VideoDemo() {
       <div className="aspect-video glass rounded-xl relative overflow-hidden">
         <video
           ref={videoRef}
-          src="/demo-video.mp4"
+          src="/qwen-site/demo-video.mp4"
           className={`w-full h-full object-cover transition-all duration-[1500ms] ${ended ? 'blur-md brightness-75' : ''}`}
           autoPlay
           muted

@@ -58,8 +58,8 @@ export default function Navigation() {
       />
       <div className="relative max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <a href="#" className="flex items-center gap-2">
-          <img src="/icon.svg" alt="千问" className="h-8 w-8 object-contain" />
-          <img src="/logo-text.webp" alt="千问 AI" className="h-6 w-auto object-contain" />
+          <img src="/qwen-site/icon.svg" alt="千问" className="h-8 w-8 object-contain" />
+          <img src="/qwen-site/logo-text.webp" alt="千问 AI" className="h-6 w-auto object-contain" />
         </a>
 
         {/* Desktop nav */}
