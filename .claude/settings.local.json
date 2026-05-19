@@ -1,0 +1,36 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm config *)",
+      "Bash(rm pnpm-lock.yaml)",
+      "Bash(pnpm install *)",
+      "Bash(pnpm dev *)",
+      "Bash(cmd.exe *)",
+      "Bash(netstat -ano)",
+      "Bash(taskkill *)",
+      "Bash(mkdir -p \"C:\\\\Users\\\\14451\\\\Desktop\\\\Qwen\\\\public\")",
+      "Bash(mv \"C:\\\\Users\\\\14451\\\\Desktop\\\\Qwen\\\\icon.svg\" \"C:\\\\Users\\\\14451\\\\Desktop\\\\Qwen\\\\public\\\\icon.svg\")",
+      "Bash(mv \"C:\\\\Users\\\\14451\\\\Desktop\\\\Qwen\\\\logo-text.webp\" \"C:\\\\Users\\\\14451\\\\Desktop\\\\Qwen\\\\public\\\\logo-text.webp\")",
+      "Bash(mv \"C:\\\\Users\\\\14451\\\\Desktop\\\\Qwen\\\\qwen-color.svg\" \"C:\\\\Users\\\\14451\\\\Desktop\\\\Qwen\\\\public\\\\qwen-color.svg\")",
+      "Bash(npx webpack *)",
+      "WebSearch",
+      "WebFetch(domain:images.unsplash.com)",
+      "Bash(curl -L -o \"C:/Users/14451/Desktop/Qwen/public/street-scene.jpg\" \"https://images.unsplash.com/photo-1517457373958-b7a458823e68?w=1200&q=80\")",
+      "Bash(rm \"C:/Users/14451/Desktop/Qwen/public/street-scene.jpg\")",
+      "Bash(curl -L -o \"C:/Users/14451/Desktop/Qwen/public/street-scene.jpg\" \"https://images.unsplash.com/photo-1477959858617-7c4285d252e1?w=1200&q=80\" -H \"User-Agent: Mozilla/5.0\" --max-time 20)",
+      "Bash(curl -L -o \"C:/Users/14451/Desktop/Qwen/public/street-scene.jpg\" \"https://cdn.pixabay.com/photo/2019/04/17/15/16/city-4138113_1280.jpg\" -H \"User-Agent: Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\)\" --max-time 30)",
+      "Bash(npx tsc *)",
+      "WebFetch(domain:www.svgrepo.com)",
+      "WebFetch(domain:en.wikipedia.org)",
+      "Bash(gh auth *)",
+      "PowerShell(gh *)",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git config *)"
+    ]
+  },
+  "enabledPlugins": {
+    "frontend-design@claude-plugins-official": true
+  }
+}
