@@ -1,11 +1,13 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = (env, argv) => {
   const isDev = argv.mode !== 'production';
   const ossPublicPath = env && env.publicPath ? env.publicPath : undefined;
   const publicPath = isDev ? 'auto' : (ossPublicPath || '/qwen-site/');
+  const assetBase = isDev ? '/qwen-site/' : (ossPublicPath || '/qwen-site/');
 
   return {
     mode: isDev ? 'development' : 'production',
@@ -88,6 +90,9 @@ module.exports = (env, argv) => {
       }),
       new CopyPlugin({
         patterns: [{ from: 'public', to: '.' }]
+      }),
+      new webpack.DefinePlugin({
+        ASSET_BASE: JSON.stringify(assetBase),
       })
     ]
   };

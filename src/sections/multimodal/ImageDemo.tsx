@@ -24,7 +24,7 @@ export default function ImageDemo() {
     <div className="space-y-4">
       <div className="relative aspect-[16/9] rounded-xl overflow-hidden">
         <img
-          src="/qwen-site/street-scene.png"
+          src={`${ASSET_BASE}street-scene.png`}
           alt="街景"
           className="w-full h-full object-cover"
         />

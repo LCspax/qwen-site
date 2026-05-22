@@ -1,0 +1,1 @@
+declare const ASSET_BASE: string;

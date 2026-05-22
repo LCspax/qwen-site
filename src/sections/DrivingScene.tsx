@@ -172,7 +172,7 @@ export default function DrivingScene() {
                 Box: 220 wide × 140 tall, centered at x=400, bottom-aligned at y=72.
                 preserveAspectRatio keeps the file's natural ratio inside the box. */}
             <image
-              href="/qwen-site/car_rear_view.svg"
+              href={`${ASSET_BASE}car_rear_view.svg`}
               x="290"
               y="-68"
               width="220"
