@@ -5,9 +5,9 @@ const webpack = require('webpack');
 
 module.exports = (env, argv) => {
   const isDev = argv.mode !== 'production';
-  const ossPublicPath = env && env.publicPath ? env.publicPath : undefined;
-  const publicPath = isDev ? 'auto' : (ossPublicPath || '/qwen-site/');
-  const assetBase = isDev ? '/qwen-site/' : (ossPublicPath || '/qwen-site/');
+  const isOss = env && env.deploy === 'oss';
+  const publicPath = isDev ? 'auto' : (isOss ? '' : '/qwen-site/');
+  const assetBase = isDev ? '/qwen-site/' : (isOss ? '' : '/qwen-site/');
 
   return {
     mode: isDev ? 'development' : 'production',
