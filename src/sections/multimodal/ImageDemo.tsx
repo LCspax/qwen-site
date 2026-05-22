@@ -5,10 +5,21 @@ import { Play, CheckCircle } from 'lucide-react';
 type Phase = 'idle' | 'scanning' | 'detecting' | 'done';
 
 const detections = [
-  { label: '汽车', x: 5, y: 55, w: 25, h: 18 },
-  { label: '汽车', x: 35, y: 55, w: 18, h: 16 },
-  { label: '树木', x: 40, y: 15, w: 10, h: 40 },
-  { label: '建筑', x: 60, y: 5, w: 20, h: 35 },
+  { label: '公交车', x: 3, y: 50, w: 28, h: 20 },
+  { label: '轿车', x: 54, y: 46, w: 20, h: 18 },
+  { label: '公寓楼', x: 0, y: 0, w: 15, h: 50 },
+  { label: '公寓楼', x: 15, y: 0, w: 12, h: 50 },
+  { label: '公寓楼', x: 27, y: 0, w: 13, h: 50 },
+  { label: '公寓楼', x: 40, y: 0, w: 12, h: 50 },
+  { label: '公寓楼', x: 52, y: 0, w: 13, h: 50 },
+  { label: '公寓楼', x: 65, y: 0, w: 12, h: 50 },
+  { label: '公寓楼', x: 77, y: 0, w: 23, h: 50 },
+  { label: '行道树', x: 26, y: 10, w: 10, h: 40 },
+  { label: '行道树', x: 36, y: 18, w: 7, h: 32 },
+  { label: '行道树', x: 73, y: 25, w: 6, h: 25 },
+  { label: '红绿灯', x: 37, y: 38, w: 2, h: 8 },
+  { label: '道路', x: 0, y: 62, w: 100, h: 38 },
+  { label: '人行道', x: 0, y: 46, w: 100, h: 16 },
 ];
 
 export default function ImageDemo() {
@@ -42,7 +53,7 @@ export default function ImageDemo() {
         {/* Detection boxes */}
         {(phase === 'detecting' || phase === 'done') && detections.map((d, i) => (
           <motion.div
-            key={d.label}
+            key={i}
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{
