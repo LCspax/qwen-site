@@ -42,21 +42,21 @@ export default function DesktopAgent() {
   // 2. 状态切换：Agent 执行中 (35% - 40%)
   const textExecutingOp = useTransform(scrollYProgress, [0.35, 0.4, 0.85, 0.9], [0, 1, 1, 0]);
 
-  // 3. 窗口依次弹出 (40% - 70%)
-  const browserOp = useTransform(scrollYProgress, [0.4, 0.45], [0, 1]);
-  const browserY = useTransform(scrollYProgress, [0.4, 0.45], [50, 0]);
-  const browserScale = useTransform(scrollYProgress, [0.4, 0.45], [0.95, 1]);
+  // 3. 窗口依次弹出（每个过渡10%滚动区间，更从容）
+  const browserOp = useTransform(scrollYProgress, [0.35, 0.45], [0, 1]);
+  const browserY = useTransform(scrollYProgress, [0.35, 0.45], [50, 0]);
+  const browserScale = useTransform(scrollYProgress, [0.35, 0.45], [0.95, 1]);
 
-  const ideOp = useTransform(scrollYProgress, [0.5, 0.55], [0, 1]);
-  const ideY = useTransform(scrollYProgress, [0.5, 0.55], [50, 0]);
-  const ideScale = useTransform(scrollYProgress, [0.5, 0.55], [0.95, 1]);
+  const ideOp = useTransform(scrollYProgress, [0.50, 0.60], [0, 1]);
+  const ideY = useTransform(scrollYProgress, [0.50, 0.60], [50, 0]);
+  const ideScale = useTransform(scrollYProgress, [0.50, 0.60], [0.95, 1]);
 
-  const terminalOp = useTransform(scrollYProgress, [0.6, 0.65], [0, 1]);
-  const terminalY = useTransform(scrollYProgress, [0.6, 0.65], [50, 0]);
-  const terminalScale = useTransform(scrollYProgress, [0.6, 0.65], [0.95, 1]);
+  const terminalOp = useTransform(scrollYProgress, [0.65, 0.75], [0, 1]);
+  const terminalY = useTransform(scrollYProgress, [0.65, 0.75], [50, 0]);
+  const terminalScale = useTransform(scrollYProgress, [0.65, 0.75], [0.95, 1]);
 
-  // 4. Slogan 出现 (75% - 85%)
-  const sloganOp = useTransform(scrollYProgress, [0.75, 0.8], [0, 1]);
+  // 4. Slogan 出现 (80% - 90%)
+  const sloganOp = useTransform(scrollYProgress, [0.80, 0.88], [0, 1]);
 
   return (
     <section ref={containerRef} className="relative h-[400vh] bg-black">

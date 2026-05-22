@@ -4,6 +4,8 @@ const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = (env, argv) => {
   const isDev = argv.mode !== 'production';
+  const ossPublicPath = env && env.publicPath ? env.publicPath : undefined;
+  const publicPath = isDev ? 'auto' : (ossPublicPath || '/qwen-site/');
 
   return {
     mode: isDev ? 'development' : 'production',
@@ -11,7 +13,7 @@ module.exports = (env, argv) => {
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: 'bundle.js',
-      publicPath: isDev ? 'auto' : '/qwen-site/'
+      publicPath
     },
     module: {
       rules: [
@@ -69,6 +71,9 @@ module.exports = (env, argv) => {
     devServer: {
       port: 3266,
       allowedHosts: 'all',
+      static: {
+        publicPath: '/qwen-site/',
+      },
       historyApiFallback: {
         index: '/index.html',
         rewrites: [

@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg width="100%" height="100%" viewBox="0 0 834 375" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;">
+    <ellipse cx="416.667" cy="306.671" rx="270.833" ry="61.182" style="fill-opacity:0.5;"/>
     <path d="M254.167,245.833L254.167,337.5C254.167,344.399 248.566,350 241.667,350L183.334,350C176.435,350 170.834,344.399 170.834,337.5L170.834,245.833C170.834,238.934 176.435,233.333 183.334,233.333L241.667,233.333C248.566,233.333 254.167,238.934 254.167,245.833Z" style="fill:rgb(7,11,18);stroke:rgb(30,41,59);stroke-width:4.17px;"/>
     <path d="M662.5,245.833L662.5,337.5C662.5,344.399 656.899,350 650,350L591.667,350C584.768,350 579.167,344.399 579.167,337.5L579.167,245.833C579.167,238.934 584.768,233.333 591.667,233.333L650,233.333C656.899,233.333 662.5,238.934 662.5,245.833Z" style="fill:rgb(7,11,18);stroke:rgb(30,41,59);stroke-width:4.17px;"/>
     <g id="_Image1_" serif:id="_Image1" transform="matrix(1,0,0,1,108.414,0)">
-        <use xlink:href="#_Image1" x="0" y="0" width="618px" height="153px"/>
+        <use id="_Image1_1" serif:id="_Image1" xlink:href="#_Image1" x="0" y="0" width="618px" height="153px"/>
     </g>
-    <ellipse cx="416.667" cy="306.671" rx="270.833" ry="61.182" style="fill-opacity:0.5;"/>
     <path d="M104.167,258.333L104.167,166.666C104.167,155.555 109.723,149.999 120.834,149.999L712.501,149.999C723.612,149.999 729.168,155.555 729.168,166.666L729.168,258.333C729.168,280.555 708.335,293.055 666.668,295.833L166.668,295.833C125.001,293.055 104.168,280.555 104.168,258.333L104.167,258.333Z" style="fill:rgb(12,19,34);fill-rule:nonzero;stroke:rgb(59,130,246);stroke-width:4.17px;"/>
     <g id="_Image2_" serif:id="_Image2" transform="matrix(1,0,0,1,161.293,33.136)">
-        <use xlink:href="#_Image2" x="0" y="0" width="508px" height="103px"/>
+        <use id="_Image2_1" serif:id="_Image2" xlink:href="#_Image2" x="0" y="0" width="508px" height="103px"/>
     </g>
     <g>
-        <clipPath id="_clip3">
-            <rect x="116.667" y="156.25" width="600" height="4.167"/>
-        </clipPath>
-        <g clip-path="url(#_clip3)">
-            <g id="_Image4_" serif:id="_Image4" transform="matrix(1,0,0,1,116.667,156.25)">
-                <use xlink:href="#_Image4" x="0" y="0" width="600px" height="5px"/>
+        <g>
+            <clipPath id="_clip3">
+                <rect x="116.667" y="156.25" width="600" height="4.167"/>
+            </clipPath>
+            <g clip-path="url(#_clip3)">
+                <g id="_Image4_" serif:id="_Image4" transform="matrix(1,0,0,1,116.667,156.25)">
+                    <use id="_Image4_1" serif:id="_Image4" xlink:href="#_Image4" x="0" y="0" width="600px" height="5px"/>
+                </g>
             </g>
         </g>
     </g>
@@ -27,12 +29,14 @@
     <path d="M708.333,191.667L708.333,200C708.333,204.599 704.599,208.333 700,208.333L541.667,208.333C537.068,208.333 533.334,204.599 533.334,200L533.334,191.667C533.334,187.068 537.068,183.334 541.667,183.334L700,183.334C704.599,183.334 708.333,187.068 708.333,191.667Z" style="fill:rgb(220,38,38);"/>
     <path d="M700,193.75L700,197.917C700,200.217 698.133,202.084 695.833,202.084L545.833,202.084C543.533,202.084 541.666,200.217 541.666,197.917L541.666,193.75C541.666,191.45 543.533,189.583 545.833,189.583L695.833,189.583C698.133,189.583 700,191.45 700,193.75Z" style="fill:rgb(239,68,68);fill-opacity:0.9;"/>
     <g>
-        <clipPath id="_clip5">
-            <rect x="145.833" y="281.25" width="541.667" height="4.167"/>
-        </clipPath>
-        <g clip-path="url(#_clip5)">
-            <g id="_Image6_" serif:id="_Image6" transform="matrix(1,0,0,1,145.833,281.25)">
-                <use xlink:href="#_Image6" x="0" y="0" width="542px" height="5px"/>
+        <g>
+            <clipPath id="_clip5">
+                <rect x="145.833" y="281.25" width="541.667" height="4.167"/>
+            </clipPath>
+            <g clip-path="url(#_clip5)">
+                <g id="_Image6_" serif:id="_Image6" transform="matrix(1,0,0,1,145.833,281.25)">
+                    <use id="_Image6_1" serif:id="_Image6" xlink:href="#_Image6" x="0" y="0" width="542px" height="5px"/>
+                </g>
             </g>
         </g>
     </g>
