@@ -5,17 +5,15 @@ import { Play, CheckCircle } from 'lucide-react';
 type Phase = 'idle' | 'scanning' | 'detecting' | 'done';
 
 const detections = [
-  { label: '公交车', x: 3, y: 50, w: 28, h: 20 },
-  { label: '轿车', x: 54, y: 46, w: 20, h: 18 },
-  { label: '公寓楼', x: 0, y: 0, w: 15, h: 50 },
-  { label: '公寓楼', x: 15, y: 0, w: 12, h: 50 },
-  { label: '公寓楼', x: 27, y: 0, w: 13, h: 50 },
-  { label: '公寓楼', x: 40, y: 0, w: 12, h: 50 },
-  { label: '公寓楼', x: 52, y: 0, w: 13, h: 50 },
-  { label: '公寓楼', x: 65, y: 0, w: 12, h: 50 },
-  { label: '公寓楼', x: 77, y: 0, w: 23, h: 50 },
-  { label: '道路', x: 0, y: 62, w: 100, h: 38 },
-  { label: '人行道', x: 0, y: 46, w: 100, h: 16 },
+  { label: '公交车', x: 3, y: 55, w: 35, h: 20 },
+  { label: '轿车', x: 57, y: 60, w: 26, h: 18 },
+  { label: '公寓楼', x: 0, y: 0, w: 18, h: 70 },
+  { label: '公寓楼', x: 20, y: 0, w: 15, h: 70 },
+  { label: '公寓楼', x: 42, y: 0, w: 13, h: 70 },
+  { label: '公寓楼', x: 63, y: 0, w: 13, h: 70 },
+  { label: '公寓楼', x: 77, y: 0, w: 12, h: 70 },
+  { label: '公寓楼', x: 90, y: 0, w: 23, h: 70 },
+  { label: '道路', x: 0, y: 70, w: 100, h: 30 },
 ];
 
 export default function ImageDemo() {
