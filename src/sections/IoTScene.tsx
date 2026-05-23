@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
 
 // Inline Qwen logo for IoT scene
 function QwenLogoMini({ size = 20, color = 'white', opacity = 0.8 }) {
@@ -43,42 +43,44 @@ export default function IoTScene() {
     ? 'absolute w-full h-full'
     : 'absolute w-full h-full max-w-5xl px-4 md:px-0';
 
-  // Global fade
-  const sectionOpacity = useTransform(scrollYProgress, [0, 0.05, 0.9, 1], [0, 1, 1, 0]);
+  // Global fade — matches DrivingScene (10% fade-in, 15% fade-out)
+  const sectionOpacity = useTransform(scrollYProgress, [0, 0.10, 0.85, 1], [0, 1, 1, 0]);
 
   // 1. Room outline draws
-  const roomDraw = useTransform(scrollYProgress, [0.05, 0.18], [0, 1]);
+  const roomDraw = useTransform(scrollYProgress, [0.10, 0.23], [0, 1]);
 
   // 2. Furniture inside room appears
-  const furnitureOp = useTransform(scrollYProgress, [0.15, 0.25], [0, 1]);
+  const furnitureOp = useTransform(scrollYProgress, [0.20, 0.30], [0, 1]);
 
   // 3. Phone rises from below
-  const phoneY = useTransform(scrollYProgress, [0.20, 0.35], [120, 0]);
-  const phoneOp = useTransform(scrollYProgress, [0.20, 0.28], [0, 1]);
+  const phoneY = useTransform(scrollYProgress, [0.25, 0.40], [120, 0]);
+  const phoneOp = useTransform(scrollYProgress, [0.25, 0.33], [0, 1]);
 
   // 4. Qwen logo on phone screen
-  const logoOp = useTransform(scrollYProgress, [0.32, 0.37], [0, 1]);
+  const logoOp = useTransform(scrollYProgress, [0.37, 0.42], [0, 1]);
 
   // 5. Connection lines draw (staggered)
-  const acLineLen = useTransform(scrollYProgress, [0.35, 0.47], [0, 1]);
-  const tvLineLen = useTransform(scrollYProgress, [0.40, 0.52], [0, 1]);
-  const fanLineLen = useTransform(scrollYProgress, [0.45, 0.57], [0, 1]);
+  const acLineLen = useTransform(scrollYProgress, [0.40, 0.52], [0, 1]);
+  const tvLineLen = useTransform(scrollYProgress, [0.45, 0.57], [0, 1]);
+  const fanLineLen = useTransform(scrollYProgress, [0.50, 0.62], [0, 1]);
 
   // 6. Pulse dots at appliances
-  const acPulseOp = useTransform(scrollYProgress, [0.47, 0.52, 0.57], [0, 0.8, 0.3]);
-  const tvPulseOp = useTransform(scrollYProgress, [0.52, 0.57, 0.62], [0, 0.8, 0.3]);
-  const fanPulseOp = useTransform(scrollYProgress, [0.57, 0.62, 0.67], [0, 0.8, 0.3]);
+  const acPulseOp = useTransform(scrollYProgress, [0.52, 0.57, 0.62], [0, 0.8, 0.3]);
+  const tvPulseOp = useTransform(scrollYProgress, [0.57, 0.62, 0.67], [0, 0.8, 0.3]);
+  const fanPulseOp = useTransform(scrollYProgress, [0.62, 0.67, 0.72], [0, 0.8, 0.3]);
 
   // 7. Activation effects
-  const airflowOp = useTransform(scrollYProgress, [0.60, 0.65], [0, 0.7]);
-  const windOffset = useTransform(scrollYProgress, [0.60, 0.85], [0, 200]);
-  const fanRotate = useTransform(scrollYProgress, [0.63, 0.85], [0, 720]);
-  const tvScreenOp = useTransform(scrollYProgress, [0.65, 0.72], [0, 0.25]);
-  const tvGlowOp = useTransform(scrollYProgress, [0.65, 0.72], [0, 0.5]);
+  const airflowOp = useTransform(scrollYProgress, [0.65, 0.70], [0, 0.7]);
+  const windOffset = useTransform(scrollYProgress, [0.65, 0.85], [0, 200]);
+  const fanRotate = useTransform(scrollYProgress, [0.68, 0.85], [0, 720]);
+  const [fanAngle, setFanAngle] = useState(0);
+  useMotionValueEvent(fanRotate, 'change', (v) => setFanAngle(v));
+  const tvScreenOp = useTransform(scrollYProgress, [0.70, 0.77], [0, 0.25]);
+  const tvGlowOp = useTransform(scrollYProgress, [0.70, 0.77], [0, 0.5]);
 
   // 8. Slogan
-  const sloganOp = useTransform(scrollYProgress, [0.75, 0.82], [0, 1]);
-  const sloganY = useTransform(scrollYProgress, [0.75, 0.82], [20, 0]);
+  const sloganOp = useTransform(scrollYProgress, [0.78, 0.85], [0, 1]);
+  const sloganY = useTransform(scrollYProgress, [0.78, 0.84], [20, 0]);
 
   return (
     <section ref={containerRef} className="relative h-[400vh] bg-black">
@@ -263,51 +265,44 @@ export default function IoTScene() {
           {/* AC pulse */}
           <motion.circle cx="315" cy="191" r="5" fill="#3b82f6" style={{ opacity: acPulseOp }} filter="url(#glowSmall)" />
 
-          {/* Fan blades — 3 blades, 120° apart, propeller style.
-              We use CSS `rotate` via framer-motion, but explicitly pin the
-              CSS `transform-box` and `transform-origin` so the spin axis is
-              the fan hub at viewBox (620, 320) — not the SVG's default
-              transform-origin (which varies across browsers and would make
-              the blades swing wildly off-center). */}
-          <motion.g
-            style={{
-              rotate: fanRotate,
-              transformBox: 'view-box',
-              transformOrigin: '620px 320px',
-            }}
-          >
-            {/* Blade 1 — pointing up */}
+          {/* Fan blades — pure SVG transform for reliable rotation around fan center.
+              translate(620 320) positions the group at the fan hub;
+              rotate(fanAngle) spins around (0,0) in this translated system,
+              which is exactly (620,320) in viewBox coords. No CSS transform-origin
+              quirks involved. */}
+          <g transform={`translate(620 320) rotate(${fanAngle})`}>
+            {/* Blade 1 — pointing up, symmetric around x=0 */}
             <path
-              d="M 620 320
-                 C 614 312, 610 300, 614 290
-                 C 618 282, 624 282, 627 290
-                 C 629 300, 626 312, 620 320 Z"
+              d="M 0 -5
+                 C -3 -10, -6 -17, -7 -23
+                 C -5 -26, 5 -26, 7 -23
+                 C 6 -17, 3 -10, 0 -5 Z"
               fill="#8b5cf6" fillOpacity="0.4"
               stroke="#8b5cf6" strokeWidth="1.2"
             />
-            {/* Blade 2 — rotated 120° around fan center */}
+            {/* Blade 2 — 120° */}
             <path
-              d="M 620 320
-                 C 614 312, 610 300, 614 290
-                 C 618 282, 624 282, 627 290
-                 C 629 300, 626 312, 620 320 Z"
+              d="M 0 -5
+                 C -3 -10, -6 -17, -7 -23
+                 C -5 -26, 5 -26, 7 -23
+                 C 6 -17, 3 -10, 0 -5 Z"
               fill="#8b5cf6" fillOpacity="0.4"
               stroke="#8b5cf6" strokeWidth="1.2"
-              transform="rotate(120 620 320)"
+              transform="rotate(120)"
             />
-            {/* Blade 3 — rotated 240° around fan center */}
+            {/* Blade 3 — 240° */}
             <path
-              d="M 620 320
-                 C 614 312, 610 300, 614 290
-                 C 618 282, 624 282, 627 290
-                 C 629 300, 626 312, 620 320 Z"
+              d="M 0 -5
+                 C -3 -10, -6 -17, -7 -23
+                 C -5 -26, 5 -26, 7 -23
+                 C 6 -17, 3 -10, 0 -5 Z"
               fill="#8b5cf6" fillOpacity="0.4"
               stroke="#8b5cf6" strokeWidth="1.2"
-              transform="rotate(240 620 320)"
+              transform="rotate(240)"
             />
             {/* Center hub on top of blades */}
-            <circle cx="620" cy="320" r="3.5" fill="#0c1322" stroke="#8b5cf6" strokeWidth="0.8" />
-          </motion.g>
+            <circle cx="0" cy="0" r="3.5" fill="#0c1322" stroke="#8b5cf6" strokeWidth="0.8" />
+          </g>
 
           {/* Fan pulse */}
           <motion.circle cx="620" cy="320" r="6" fill="#8b5cf6" style={{ opacity: fanPulseOp }} filter="url(#glowSmall)" />
